@@ -17,9 +17,9 @@ steps:
 - script: 'dotnet build ./HunkPunk/HunkPunk.sln'
   displayName: 'Run a one-line script'
 
-  -task: DotNetCoreInstaller@0
-  input:
-    version: '2.2'
+ #  -task: DotNetCoreInstaller@0
+  # input:
+ #    version: '2.2.1'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
