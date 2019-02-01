@@ -7,14 +7,19 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Ubuntu-16.04'  
+  vmImage: 'Ubuntu-16.04'  #server that runs the build with a key value relationship
 
   pr: 
-   -  'azure-pipelines'
+    'azure-pipelines'
 
 steps:
-- script: echo Hello, world!
+- script: 'dotnet restore ./HunkPunk/HunkPunk.sln'
+- script: 'dotnet build ./HunkPunk/HunkPunk.sln'
   displayName: 'Run a one-line script'
+
+  -task: DotNetCoreInstaller@0
+  input:
+    version: '2.2'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
